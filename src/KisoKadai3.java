@@ -43,18 +43,18 @@ public class KisoKadai3 {
 		}
 		File file = new File(st); //ファイルの存在チェック、作成用
 		File dir = new File(file.getParent()); //ディレクトリの存在チェック、作成用
-		if(dir.exists()){ //ディレクトリが存在しているかチェック
-			System.out.println("ディレクトリが存在します");
-		}else{
+		//mkdirsは複数階層のディレクトリがなくても一括で作成する
+		if(dir.mkdirs()){//ディレクトリを新しく作成出来ればtrue、作成できなければfalseを返す
 			System.out.println("新しくディレクトリを作成します");
-			dir.mkdir(); // ディレクトリ作成
+		}else{
+			System.out.println("ディレクトリが存在します");
 		}
 		if(file.exists()){ //ファイルが存在しているかチェック
 			System.out.println("ファイルを開きます");
 		}else{
-			System.out.println("新しくファイルを作成します");
 			try{
-				file.createNewFile(); //ファイル作成
+				file.createNewFile();
+				System.out.println("新しくファイルを作成します");
 			}catch(Exception e){
 				System.out.println("Error");
 				System.out.println("ファイルの再指定を行ってください");
