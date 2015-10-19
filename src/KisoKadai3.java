@@ -5,7 +5,7 @@ public class KisoKadai3 {
 		String str = ""; //パスを含めたファイル名を保存
 		int No = 0; //ファイルに対する命令を保存
 
-		str = create(str); //ファイル指定のメソッド呼び出し
+		str = create(); //ファイル指定のメソッド呼び出し
 		//終了の4が入力されるまでループ
 		while(No != 4){
 			String filename = new File(str).getName(); //現在指定されているファイル名を取得
@@ -14,7 +14,7 @@ public class KisoKadai3 {
 			switch(No){
 			case 1:filewrite(str); break; //書き込みメソッドの呼び出し
 			case 2:fileread(str); break; //読み込みメソッドの呼び出し
-			case 3:str = create(str); break; //ファイルの指定メソッドの呼び出し
+			case 3:str = create(); break; //ファイルの指定メソッドの呼び出し
 			case 4:System.out.println("終了します"); break; //全ての操作を終了
 			default:System.out.println("指定内の数字を入力してください"); break; //1から4以外の数字が入力された時
 			}
@@ -32,8 +32,9 @@ public class KisoKadai3 {
 		}
 		return x; //指定された選択を対応している数字で返す
 	}
-
-	static String create(String st){ //ファイルを指定
+	
+	static String create(){ //ファイルを指定
+		String st = "";
 		try{
 			System.out.println("以下のようにファイル名を記載してください");
 			System.out.println("例 - C:/Users//internous//test.txt");
